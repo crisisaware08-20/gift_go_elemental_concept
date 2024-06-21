@@ -1,0 +1,7 @@
+
+I've doubts this is the right way to determine the seniority level, whom I speak to ?
+
+Additional Task/Requirements for Senior Developer 
+Other than the necessary unit tests, you should be writing a REST API test to test your task. You MUST make use of Wiremock to mock the response from ....
+
+

@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres-container
+    environment:
+      POSTGRES_DB: elementaldb
+      POSTGRES_USER: elemental
+      POSTGRES_PASSWORD: admin 
+    ports:
+      - "5432:5432"
+
+  elemental:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: elemental
+    depends_on:
+      - postgres
+    environment:
+      JDBC_DATABASE_URL: jdbc:postgresql://postgres:5432/elementaldb
+      JDBC_DATABASE_USERNAME: elemental
+      JDBC_DATABASE_PASSWORD: admin
+    ports:
+      - "8080:8080"
+

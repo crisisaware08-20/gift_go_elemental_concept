@@ -1,0 +1,16 @@
+spring:
+  jpa:
+    show=sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog-master.xml
+  datasource:
+    url: ${JDBC_DATABASE_URL}
+    hikari:
+      jdbcUrl: ${JDBC_DATABASE_URL}
+      transaction-isolation: TRANSACTION_SERIALIZABLE
+      username: ${JDBC_DATABASE_USERNAME}
+      password: ${JDBC_DATABASE_PASSWORD}
